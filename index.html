@@ -1,0 +1,885 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>GSP Ventures | Elite Social Media Consulting for Hollywood's Most Visible Brands</title>
+<meta name="description" content="GSP Ventures architects social strategies for A-list talent, studios, and luxury brands — turning attention into measurable revenue, not just likes.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --color-background: #F5F1E8;
+    --color-surface: #FFFFFF;
+    --color-foreground: #1A1613;
+    --color-muted-foreground: #5C564D;
+    --color-accent: #B8912F;
+    --color-accent-dark: #8F6F22;
+    --color-accent-light: #D4AF6A;
+    --color-band: #171412;
+    --color-band-foreground: #F5F1E8;
+    --color-border: #E4DCC8;
+    --font-display: "Bodoni Moda", Georgia, serif;
+    --font-body: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --max-width: 1180px;
+    --radius: 2px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) {
+    html { scroll-behavior: auto; }
+    * { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  img, svg { max-width: 100%; }
+
+  a { color: inherit; }
+
+  h1, h2, h3, h4 {
+    font-family: var(--font-display);
+    font-weight: 500;
+    line-height: 1.15;
+    margin: 0 0 0.5em;
+  }
+
+  p { margin: 0 0 1em; }
+
+  .container {
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 0 24px;
+  }
+
+  .eyebrow {
+    font-family: var(--font-body);
+    font-size: 0.75rem;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--color-accent-dark);
+    display: block;
+    margin-bottom: 0.9em;
+  }
+  .band-dark .eyebrow { color: var(--color-accent-light); }
+
+  .rule {
+    width: 56px;
+    height: 2px;
+    background: var(--color-accent);
+    border: none;
+    margin: 0 0 1.5em;
+  }
+  .rule.center { margin-left: auto; margin-right: auto; }
+
+  /* Buttons */
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5em;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 0.95rem;
+    letter-spacing: 0.02em;
+    padding: 0.9em 1.9em;
+    border-radius: var(--radius);
+    text-decoration: none;
+    cursor: pointer;
+    border: 1px solid transparent;
+    transition: background-color 200ms ease, color 200ms ease, border-color 200ms ease;
+  }
+  .btn:focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+  .btn-primary {
+    background: var(--color-accent);
+    color: #1A1613;
+  }
+  .btn-primary:hover { background: var(--color-accent-dark); }
+  .btn-outline {
+    background: transparent;
+    border-color: var(--color-foreground);
+    color: var(--color-foreground);
+  }
+  .btn-outline:hover { background: var(--color-foreground); color: var(--color-background); }
+  .band-dark .btn-outline {
+    border-color: var(--color-band-foreground);
+    color: var(--color-band-foreground);
+  }
+  .band-dark .btn-outline:hover { background: var(--color-band-foreground); color: var(--color-band); }
+
+  /* Header / nav */
+  header.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(245, 241, 232, 0.94);
+    backdrop-filter: saturate(180%) blur(6px);
+    border-bottom: 1px solid var(--color-border);
+  }
+  .nav-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 14px 24px;
+    max-width: var(--max-width);
+    margin: 0 auto;
+  }
+  .brand-mark {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    color: var(--color-foreground);
+  }
+  .brand-mark img { height: 48px; width: auto; display: block; }
+  nav.primary-nav { display: flex; align-items: center; gap: 28px; }
+  nav.primary-nav a {
+    font-size: 0.92rem;
+    font-weight: 500;
+    text-decoration: none;
+    color: var(--color-foreground);
+    padding: 4px 2px;
+    border-bottom: 2px solid transparent;
+    transition: border-color 200ms ease, color 200ms ease;
+  }
+  nav.primary-nav a:hover,
+  nav.primary-nav a:focus-visible { border-color: var(--color-accent); }
+  .nav-cta { display: none; }
+  .menu-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 8px;
+    color: var(--color-foreground);
+  }
+
+  @media (max-width: 860px) {
+    nav.primary-nav {
+      position: fixed;
+      inset: 64px 0 0 0;
+      background: var(--color-background);
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 0;
+      padding: 12px 24px 24px;
+      transform: translateY(-8px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 200ms ease, transform 200ms ease;
+      border-top: 1px solid var(--color-border);
+    }
+    nav.primary-nav.open { opacity: 1; transform: translateY(0); pointer-events: auto; }
+    nav.primary-nav a { width: 100%; padding: 14px 0; border-bottom: 1px solid var(--color-border); }
+    .menu-toggle { display: inline-flex; }
+  }
+
+  section { padding: 88px 0; }
+  @media (max-width: 640px) { section { padding: 56px 0; } }
+
+  .band-dark {
+    background: var(--color-band);
+    color: var(--color-band-foreground);
+  }
+  .band-dark .muted { color: #C9C2B4; }
+  .muted { color: var(--color-muted-foreground); }
+
+  /* Hero */
+  .hero {
+    padding-top: 100px;
+    padding-bottom: 90px;
+    text-align: center;
+  }
+  .hero .eyebrow { text-align: center; }
+  .hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3.6rem);
+    max-width: 900px;
+    margin: 0 auto 0.5em;
+  }
+  .hero .lede {
+    max-width: 620px;
+    margin: 0 auto 2em;
+    font-size: 1.1rem;
+    color: var(--color-muted-foreground);
+  }
+  .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5em; }
+  .hero-note { font-size: 0.85rem; color: var(--color-muted-foreground); }
+
+  /* Stat band */
+  .stats-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 32px;
+    text-align: center;
+  }
+  @media (max-width: 760px) { .stats-grid { grid-template-columns: repeat(2, 1fr); } }
+  .stat svg { width: 28px; height: 28px; color: var(--color-accent-light); margin-bottom: 12px; }
+  .stat .stat-number {
+    font-family: var(--font-display);
+    font-size: 2.2rem;
+    color: var(--color-accent-light);
+    display: block;
+  }
+  .stat .stat-label {
+    font-size: 0.85rem;
+    color: #C9C2B4;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  .stats-note { text-align: center; margin-top: 40px; font-size: 0.9rem; color: #C9C2B4; }
+
+  /* Two column */
+  .split {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 64px;
+    align-items: start;
+  }
+  @media (max-width: 860px) { .split { grid-template-columns: 1fr; gap: 32px; } }
+
+  .bullet-list { list-style: none; margin: 1.5em 0; padding: 0; }
+  .bullet-list li {
+    position: relative;
+    padding-left: 26px;
+    margin-bottom: 0.85em;
+  }
+  .bullet-list li::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    top: 0.55em;
+    width: 8px;
+    height: 8px;
+    background: var(--color-accent);
+    transform: rotate(45deg);
+  }
+
+  /* Who we work with */
+  .cols-3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+  }
+  @media (max-width: 860px) { .cols-3 { grid-template-columns: 1fr; } }
+  .card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 32px;
+  }
+  .card h3 { font-size: 1.25rem; }
+
+  /* Services */
+  .service-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-top: 3px solid var(--color-accent);
+    padding: 36px 32px;
+  }
+  .service-card h3 { font-size: 1.35rem; margin-bottom: 0.6em; }
+
+  /* Process */
+  .process-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 40px;
+    counter-reset: step;
+  }
+  @media (max-width: 860px) { .process-grid { grid-template-columns: 1fr; } }
+  .process-step .step-number {
+    font-family: var(--font-display);
+    font-size: 2.4rem;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 0.2em;
+  }
+  .process-step h3 { font-size: 1.2rem; }
+
+  /* Case studies */
+  .case-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  @media (max-width: 940px) { .case-grid { grid-template-columns: 1fr; } }
+  .case-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    padding: 32px;
+    display: flex;
+    flex-direction: column;
+  }
+  .case-card .case-kicker { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-accent-dark); font-weight: 600; margin-bottom: 0.6em; }
+  .case-card h3 { font-size: 1.15rem; margin-bottom: 0.4em; }
+  .case-metrics { list-style: none; padding: 0; margin: 1em 0 0; border-top: 1px solid var(--color-border); padding-top: 1em; }
+  .case-metrics li { font-size: 0.92rem; margin-bottom: 0.5em; padding-left: 20px; position: relative; }
+  .case-metrics li::before { content: "\2192"; position: absolute; left: 0; color: var(--color-accent); }
+  .client-roster {
+    text-align: center;
+    margin-top: 48px;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.95rem;
+    color: var(--color-muted-foreground);
+  }
+  .client-roster strong { color: var(--color-foreground); font-weight: 600; }
+
+  /* Testimonials */
+  .testimonial-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+  }
+  @media (max-width: 940px) { .testimonial-grid { grid-template-columns: 1fr; } }
+  blockquote.testimonial {
+    margin: 0;
+    padding: 32px;
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    font-family: var(--font-display);
+    font-style: italic;
+    font-size: 1.15rem;
+    line-height: 1.4;
+  }
+  blockquote.testimonial .quote-mark { color: var(--color-accent); font-size: 2.4rem; display: block; line-height: 1; margin-bottom: 0.2em; font-style: normal; }
+  blockquote.testimonial footer {
+    margin-top: 1.2em;
+    font-family: var(--font-body);
+    font-style: normal;
+    font-size: 0.85rem;
+    color: var(--color-muted-foreground);
+  }
+
+  /* FAQ */
+  .faq-list { max-width: 780px; margin: 0 auto; }
+  .faq-item { border-bottom: 1px solid var(--color-border); }
+  .faq-question {
+    width: 100%;
+    background: none;
+    border: none;
+    text-align: left;
+    font-family: var(--font-body);
+    font-weight: 600;
+    font-size: 1.02rem;
+    padding: 22px 40px 22px 0;
+    cursor: pointer;
+    color: var(--color-foreground);
+    position: relative;
+  }
+  .faq-question:focus-visible { outline: 3px solid var(--color-accent); outline-offset: 2px; }
+  .faq-question .chev {
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: transform 200ms ease;
+    color: var(--color-accent);
+  }
+  .faq-question[aria-expanded="true"] .chev { transform: translateY(-50%) rotate(180deg); }
+  .faq-answer {
+    overflow: hidden;
+    max-height: 0;
+    transition: max-height 250ms ease;
+  }
+  .faq-answer[data-open="true"] { max-height: 400px; }
+  .faq-answer-inner { padding: 0 40px 22px 0; color: var(--color-muted-foreground); }
+
+  /* Contact */
+  .contact-grid { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 56px; }
+  @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
+  .contact-info-list { list-style: none; padding: 0; margin: 1.5em 0 0; }
+  .contact-info-list li { margin-bottom: 0.7em; color: #C9C2B4; font-size: 0.95rem; }
+  form.contact-form { display: grid; gap: 18px; }
+  .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 560px) { .form-row { grid-template-columns: 1fr; } }
+  .field label {
+    display: block;
+    font-size: 0.85rem;
+    font-weight: 600;
+    margin-bottom: 6px;
+    letter-spacing: 0.02em;
+  }
+  .field input,
+  .field textarea {
+    width: 100%;
+    background: #201C18;
+    border: 1px solid #3A342D;
+    color: var(--color-band-foreground);
+    padding: 12px 14px;
+    font-family: var(--font-body);
+    font-size: 1rem;
+    border-radius: var(--radius);
+  }
+  .field input:focus-visible,
+  .field textarea:focus-visible {
+    outline: 2px solid var(--color-accent-light);
+    outline-offset: 1px;
+    border-color: var(--color-accent-light);
+  }
+  .required { color: var(--color-accent-light); }
+  .form-note { font-size: 0.8rem; color: #98917F; margin-top: 4px; }
+
+  /* Footer */
+  footer.site-footer {
+    background: var(--color-band);
+    color: #C9C2B4;
+    padding: 48px 0 32px;
+    font-size: 0.9rem;
+  }
+  .footer-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-bottom: 28px;
+    border-bottom: 1px solid #3A342D;
+    margin-bottom: 20px;
+  }
+  .footer-top img { height: 46px; width: auto; }
+  .footer-links { display: flex; gap: 24px; flex-wrap: wrap; }
+  .footer-links a { text-decoration: none; color: #C9C2B4; }
+  .footer-links a:hover { color: var(--color-accent-light); }
+  .footer-bottom { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; }
+
+  .skip-link {
+    position: absolute;
+    left: -999px;
+    top: 0;
+    background: var(--color-accent);
+    color: #1A1613;
+    padding: 12px 20px;
+    z-index: 100;
+    font-weight: 600;
+  }
+  .skip-link:focus { left: 12px; top: 12px; }
+
+  .section-head { max-width: 680px; margin: 0 auto 48px; text-align: center; }
+  .section-head.left { margin-left: 0; text-align: left; }
+</style>
+</head>
+<body>
+<a class="skip-link" href="#main">Skip to main content</a>
+
+<header class="site-header">
+  <div class="nav-row">
+    <a class="brand-mark" href="#top" aria-label="GSP Ventures home">
+      <img src="assets/gsp-logo-black.svg" alt="GSP Ventures" width="48" height="48">
+    </a>
+    <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation menu">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+    </button>
+    <nav class="primary-nav" id="primaryNav" aria-label="Primary">
+      <a href="#about">About</a>
+      <a href="#services">Services</a>
+      <a href="#case-studies">Case Studies</a>
+      <a href="#contact">Contact</a>
+      <a href="#contact" class="btn btn-primary" style="margin-left:8px;">Book a Strategy Call</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+  <section class="hero" id="top">
+    <div class="container">
+      <span class="eyebrow">Hollywood Celebrity Social Media Consulting</span>
+      <h1>Hollywood-level social media, without the chaos.</h1>
+      <p class="lede">GSP Ventures architects social strategies for A-list talent and the brands that work with them&mdash;turning attention into measurable revenue, not just likes.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="#contact">Book a Strategy Call</a>
+        <a class="btn btn-outline" href="#case-studies">View Case Studies</a>
+      </div>
+      <p class="hero-note">By-referral relationships only. Introductory calls available for studios, agencies, and brand CMOs.</p>
+    </div>
+  </section>
+
+  <section class="band-dark" aria-labelledby="stats-heading">
+    <div class="container">
+      <h2 id="stats-heading" class="visually-hidden" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);">By the numbers</h2>
+      <div class="stats-grid">
+        <div class="stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M8 14l-2 7 6-3 6 3-2-7"/></svg>
+          <span class="stat-number">30+</span>
+          <span class="stat-label">Years of Industry Experience</span>
+        </div>
+        <div class="stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
+          <span class="stat-number">160B+</span>
+          <span class="stat-label">Views Generated</span>
+        </div>
+        <div class="stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M15.5 9.5a3.5 3 0 0 0-3.5-1.5c-2 0-3.5 1-3.5 2.5S10 12.5 12 13s3.5 1 3.5 2.5-1.5 2.5-3.5 2.5a3.5 3 0 0 1-3.5-1.5"/></svg>
+          <span class="stat-number">$48M+</span>
+          <span class="stat-label">Brand Deals Influenced</span>
+        </div>
+        <div class="stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 2l2.4 6.5L21 9l-5 4.5L17.5 21 12 17l-5.5 4L8 13.5 3 9l6.6-.5z"/></svg>
+          <span class="stat-number">20+ Years</span>
+          <span class="stat-label">Building Brands &amp; Talent</span>
+        </div>
+      </div>
+      <p class="stats-note">Trusted by leading studios, streaming platforms, luxury houses, and recording artists.</p>
+    </div>
+  </section>
+
+  <section id="about">
+    <div class="container split">
+      <div>
+        <span class="eyebrow">A Strategy Partner for the Hyper-Visible</span>
+        <h2>Giovanni Saint Pierre</h2>
+        <hr class="rule">
+        <p>Founder &amp; President of GSP Ventures, Gio is a veteran digital brand strategist, influencer marketing executive, publicist, and brand-partnership expert with more than three decades of professional experience. He is a trusted strategic partner to high-profile entertainment talent and creators&mdash;including <strong>Paula Abdul</strong>, <strong>Jake Paul</strong>, and <strong>Tony Hawk</strong>&mdash;and co-founder of Rise9.</p>
+        <a class="btn btn-outline" href="#contact">Schedule a confidential intro</a>
+      </div>
+      <div>
+        <p>GSP Ventures sits at the intersection of Hollywood, social platforms, and brand money. Gio advises celebrities, their teams, and partner brands on how to turn attention into lasting equity&mdash;without diluting reputation or overexposing the talent.</p>
+        <p>From blockbuster premieres and album cycles to luxury capsule drops and multi-year endorsements, his approach combines cultural intelligence, audience psychology, social strategy, PR, creator economics, and measurement into one system: narratives, formats, and reporting that align public perception with career and revenue goals.</p>
+        <ul class="bullet-list">
+          <li>Launch &amp; rebrand architecture for talent and franchises</li>
+          <li>Always-on content and community playbooks</li>
+          <li>Discreet crisis, reputation, and narrative management</li>
+          <li>Brand deal, CMO, and agency alignment around talent IP</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--color-surface); border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Who We Work With</span>
+        <h2>Discreet support, on all sides of the table.</h2>
+      </div>
+      <div class="cols-3">
+        <div class="card">
+          <h3>Hollywood Talent</h3>
+          <p class="muted">Actors, recording artists, directors, athletes, and creators with established fanbases.</p>
+        </div>
+        <div class="card">
+          <h3>Brands &amp; Platforms</h3>
+          <p class="muted">Studios, streamers, agencies, luxury houses, and tech companies seeking credible access to talent and their audiences.</p>
+        </div>
+        <div class="card">
+          <h3>Teams</h3>
+          <p class="muted">Managers, agents, publicists, and CMOs who want one partner orchestrating the entire social and content layer.</p>
+        </div>
+      </div>
+      <p class="muted" style="text-align:center; margin-top:32px;">How we engage: discreet retainers, campaign-based scopes, and select equity-based partnerships for long-term franchises.</p>
+    </div>
+  </section>
+
+  <section id="services">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Services</span>
+        <h2>End-to-end social architecture for talent and brands.</h2>
+        <p class="muted">Each engagement is customized, but most fall into one of three pillars.</p>
+      </div>
+      <div class="cols-3">
+        <div class="service-card">
+          <h3>Celebrity Social Strategy</h3>
+          <p class="muted">We audit, re-position, and rebuild your presence across all major platforms with a singular lens: what does this do for your career, earnings, and reputation?</p>
+          <ul class="bullet-list">
+            <li>Narrative &amp; persona mapping</li>
+            <li>Platform &amp; content lane strategy</li>
+            <li>Cadence, formats, and guardrails</li>
+            <li>Team workflows &amp; approvals</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <h3>Flagship Launches &amp; Big Moments</h3>
+          <p class="muted">Movie premieres, series drops, albums, tours, brand collabs, fragrances&mdash;we architect the social layer around your next big moment.</p>
+          <ul class="bullet-list">
+            <li>Concept &amp; content calendar for the full cycle</li>
+            <li>Platform-specific creative direction &amp; templates</li>
+            <li>Talent, brand, and platform co-ordination</li>
+            <li>Live moments, press, and UGC amplification</li>
+          </ul>
+        </div>
+        <div class="service-card">
+          <h3>Brand Partnerships &amp; CMO Advisory</h3>
+          <p class="muted">For studios, brands, and agencies partnering with talent, we design social campaigns that feel authentic to the celebrity while hitting brand KPIs.</p>
+          <ul class="bullet-list">
+            <li>Talent fit and concept development</li>
+            <li>Cross-channel campaign frameworks</li>
+            <li>Measurement plans and reporting</li>
+            <li>Long-term franchise &amp; IP roadmapping</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section style="background:var(--color-surface); border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Process</span>
+        <h2>A discreet, streamlined way to engage.</h2>
+        <p class="muted">Our work is highly customized, but the way you start is simple. We operate under strict confidentiality and can work directly with your team, representation, or C-suite.</p>
+      </div>
+      <div class="process-grid">
+        <div class="process-step">
+          <span class="step-number">01</span>
+          <h3>Intro Call</h3>
+          <p class="muted">20&ndash;30 minutes with you or your team to understand goals, timing, platforms, and sensitivities.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-number">02</span>
+          <h3>Diagnostic</h3>
+          <p class="muted">We run a holistic audit of your channels, content, narrative, and current deals to identify leverage points.</p>
+        </div>
+        <div class="process-step">
+          <span class="step-number">03</span>
+          <h3>Game Plan</h3>
+          <p class="muted">You receive a clear proposal outlining the strategy, timeline, and structure of a partnership with GSP Ventures.</p>
+        </div>
+      </div>
+      <p class="muted" style="text-align:center; margin-top:36px;">Most client relationships are long-term and by referral. If we are not the right partner, we will do our best to point you in the right direction.</p>
+    </div>
+  </section>
+
+  <section id="case-studies">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Case Studies</span>
+        <h2>From vanity metrics to career-defining moments.</h2>
+        <p class="muted">Individual campaign details stay confidential per client agreements, so outcomes below are shared without names attached.</p>
+      </div>
+      <div class="case-grid">
+        <article class="case-card">
+          <span class="case-kicker">Streaming Series Lead</span>
+          <h3>A cohesive narrative ahead of a flagship launch</h3>
+          <p class="muted">Re-positioned a rising actor's social presence ahead of a flagship streaming launch, shifting their feeds from random posts to a cohesive narrative around character, craft, and community.</p>
+          <ul class="case-metrics">
+            <li>312% engagement lift over 90 days</li>
+            <li>2.1x increase in story completion rate</li>
+            <li>Multiple top-tier press mentions referencing social</li>
+          </ul>
+        </article>
+        <article class="case-card">
+          <span class="case-kicker">Global Luxury House</span>
+          <h3>A talent-led capsule that sold out in 36 hours</h3>
+          <p class="muted">Partnered with a luxury brand and a globally recognized musician to architect the social rollout for a limited release line.</p>
+          <ul class="case-metrics">
+            <li>Sold-out drop within 36 hours</li>
+            <li>4.3x uplift in brand's TikTok engagement</li>
+            <li>Talent &amp; brand retained for multi-year partnership</li>
+          </ul>
+        </article>
+        <article class="case-card">
+          <span class="case-kicker">Franchise Reboot</span>
+          <h3>From declining fandom to a record-breaking season</h3>
+          <p class="muted">For a long-running franchise with aging audiences, re-imagined the social strategy around new talent and fan-driven storylines.</p>
+          <ul class="case-metrics">
+            <li>7x increase in social video watch time</li>
+            <li>Record-high engagement for the franchise</li>
+            <li>Organic campaign picked up by major entertainment press</li>
+          </ul>
+        </article>
+      </div>
+      <p class="client-roster">Trusted, on the record, by talent including <strong>Paula Abdul</strong>, <strong>Jake Paul</strong>, and <strong>Tony Hawk</strong>.</p>
+    </div>
+  </section>
+
+  <section style="background:var(--color-surface); border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Client Voices</span>
+        <h2>&ldquo;They think like producers, not influencers.&rdquo;</h2>
+        <p class="muted">Our best work never makes headlines&mdash;only results. Here is what a few partners were willing to share publicly.</p>
+      </div>
+      <div class="testimonial-grid">
+        <blockquote class="testimonial">
+          <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+          <p>GSP rebuilt my entire social presence around the roles I actually want. Within one season, I was having different conversations with studios, with directors referencing specific posts on our feeds.</p>
+          <footer>Series regular, streaming drama</footer>
+        </blockquote>
+        <blockquote class="testimonial">
+          <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+          <p>They helped our global talent deals feel less like ads and more like stories our audience actually wanted to share.</p>
+          <footer>VP Social, global luxury brand</footer>
+        </blockquote>
+        <blockquote class="testimonial">
+          <span class="quote-mark" aria-hidden="true">&ldquo;</span>
+          <p>We brought GSP in for a &ldquo;quick&rdquo; campaign. Two years later, they're still the only external partner my client insists stays in the room.</p>
+          <footer>Talent manager, A-list actor</footer>
+        </blockquote>
+      </div>
+    </div>
+  </section>
+
+  <section id="faq">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">FAQ</span>
+        <h2>Frequently asked questions.</h2>
+        <p class="muted">If you have a question that isn't listed here, mention it in your intro form and we'll address it on the call.</p>
+      </div>
+      <div class="faq-list">
+        <div class="faq-item">
+          <h3 style="margin:0;">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-a1" id="faq-q1">
+              Who will be on the intro call?
+              <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </h3>
+          <div class="faq-answer" id="faq-a1" role="region" aria-labelledby="faq-q1" data-open="false">
+            <div class="faq-answer-inner">Typically Gio and, when relevant, a senior strategist. We're happy to speak directly with talent, management, or brand/agency leadership depending on your preference.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3 style="margin:0;">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-a2" id="faq-q2">
+              Do you manage day-to-day posting?
+              <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </h3>
+          <div class="faq-answer" id="faq-a2" role="region" aria-labelledby="faq-q2" data-open="false">
+            <div class="faq-answer-inner">We can, but most clients retain us for high-leverage strategy, creative direction, and system design. In many cases we architect the approach and then work with your in-house or agency teams to execute against it.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3 style="margin:0;">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-a3" id="faq-q3">
+              What does a typical engagement look like?
+              <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </h3>
+          <div class="faq-answer" id="faq-a3" role="region" aria-labelledby="faq-q3" data-open="false">
+            <div class="faq-answer-inner">Launch and campaign projects often run 8&ndash;16 weeks. Ongoing advisory and partnership structures can extend to 12 months or longer. After our diagnostic, we'll outline a clear recommended structure based on your goals and timeline.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3 style="margin:0;">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-a4" id="faq-q4">
+              Do you work with emerging talent?
+              <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </h3>
+          <div class="faq-answer" id="faq-a4" role="region" aria-labelledby="faq-q4" data-open="false">
+            <div class="faq-answer-inner">Yes, selectively. If you or your client are in a moment of meaningful momentum&mdash;a major role, breakout release, or significant brand attention&mdash;we're open to exploring how we can help you capitalize on it strategically.</div>
+          </div>
+        </div>
+        <div class="faq-item">
+          <h3 style="margin:0;">
+            <button class="faq-question" aria-expanded="false" aria-controls="faq-a5" id="faq-q5">
+              What are your fees?
+              <svg class="chev" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><polyline points="6 9 12 15 18 9"/></svg>
+            </button>
+          </h3>
+          <div class="faq-answer" id="faq-a5" role="region" aria-labelledby="faq-q5" data-open="false">
+            <div class="faq-answer-inner">Because our work is bespoke and often confidential, we do not publish rates. Intro calls are obligation-free; if there's a fit, we'll provide a clear proposal with scope, timeline, and investment after the diagnostic.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band-dark" id="contact">
+    <div class="container contact-grid">
+      <div>
+        <span class="eyebrow">Next Step</span>
+        <h2>Tell us about your next chapter.</h2>
+        <p class="muted">Use the form to request a confidential introduction. We'll respond within one business day with a calendar link and, where helpful, an NDA.</p>
+        <ul class="contact-info-list">
+          <li>For talent, managers, studios, brands, and agencies</li>
+          <li>Los Angeles&ndash;based, working globally</li>
+          <li>Virtual or in-person sessions available</li>
+        </ul>
+      </div>
+      <div>
+        <form class="contact-form" action="https://formsubmit.co/giovannisaintpierre@gmail.com" method="POST">
+          <input type="hidden" name="_subject" value="New intro request — GSP Ventures site">
+          <input type="hidden" name="_template" value="table">
+          <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+          <div class="form-row">
+            <div class="field">
+              <label for="first-name">First name <span class="required">*</span></label>
+              <input type="text" id="first-name" name="First name" required autocomplete="given-name">
+            </div>
+            <div class="field">
+              <label for="last-name">Last name <span class="required">*</span></label>
+              <input type="text" id="last-name" name="Last name" required autocomplete="family-name">
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field">
+              <label for="email">Email <span class="required">*</span></label>
+              <input type="email" id="email" name="Email" required autocomplete="email">
+            </div>
+            <div class="field">
+              <label for="represents">You represent <span class="required">*</span></label>
+              <input type="text" id="represents" name="You represent" placeholder="Talent, brand, agency…" required>
+            </div>
+          </div>
+          <div class="field">
+            <label for="message">Tell us a bit about your next chapter <span class="required">*</span></label>
+            <textarea id="message" name="Message" rows="4" required></textarea>
+          </div>
+          <button type="submit" class="btn btn-primary">Book my intro call</button>
+          <p class="form-note">We respect your privacy. Details shared here will not be disclosed without your written consent.</p>
+        </form>
+      </div>
+    </div>
+  </section>
+
+</main>
+
+<footer class="site-footer">
+  <div class="container">
+    <div class="footer-top">
+      <img src="assets/gsp-logo-gold.svg" alt="GSP Ventures" width="46" height="46">
+      <div class="footer-links">
+        <a href="#contact">Book a call</a>
+        <a href="#faq">FAQ</a>
+        <a href="#">Privacy</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p style="margin:0;">GSP Ventures &mdash; Hollywood celebrity social media consulting for talent, brands, and the teams who support them.</p>
+      <p style="margin:0;">&copy; 2026 GSP Ventures. All rights reserved.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+  (function () {
+    var toggle = document.getElementById('menuToggle');
+    var nav = document.getElementById('primaryNav');
+    toggle.addEventListener('click', function () {
+      var open = nav.classList.toggle('open');
+      toggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+    nav.querySelectorAll('a').forEach(function (link) {
+      link.addEventListener('click', function () {
+        nav.classList.remove('open');
+        toggle.setAttribute('aria-expanded', 'false');
+      });
+    });
+
+    document.querySelectorAll('.faq-question').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var expanded = btn.getAttribute('aria-expanded') === 'true';
+        var panel = document.getElementById(btn.getAttribute('aria-controls'));
+        btn.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+        panel.setAttribute('data-open', expanded ? 'false' : 'true');
+      });
+    });
+  })();
+</script>
+
+</body>
+</html>
