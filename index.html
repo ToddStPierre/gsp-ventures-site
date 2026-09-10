@@ -74,6 +74,21 @@
   }
   .band-dark .eyebrow { color: var(--color-accent-light); }
 
+  .portrait {
+    width: 152px;
+    height: 152px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 50% 20%;
+    display: block;
+    margin-bottom: 24px;
+    box-shadow:
+      0 0 0 4px var(--color-background),
+      0 0 0 5px var(--color-accent),
+      0 0 0 9px var(--color-background),
+      0 0 0 10px var(--color-border);
+  }
+
   .role-title {
     font-family: var(--font-body);
     font-weight: 600;
@@ -558,6 +573,7 @@
   <section id="about">
     <div class="container split">
       <div>
+        <img class="portrait" src="assets/gio-portrait.jpg" alt="Giovanni Saint Pierre, Founder &amp; President of GSP Ventures" width="152" height="152">
         <span class="eyebrow">A Strategy Partner for the Hyper-Visible</span>
         <h2>Giovanni Saint Pierre</h2>
         <p class="role-title">Global Brand Partnerships &amp; Strategic Digital Strategy Executive</p>
