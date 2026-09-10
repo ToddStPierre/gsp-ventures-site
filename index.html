@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>GSP Ventures | Elite Social Media Consulting for Hollywood's Most Visible Brands</title>
-<meta name="description" content="GSP Ventures architects social strategies for A-list talent, studios, and luxury brands — turning attention into measurable revenue, not just likes.">
+<title>GSP Ventures | Strategic Advisory &amp; Brand Partnerships</title>
+<meta name="description" content="GSP Ventures is a strategic advisory and brand partnerships consultancy working at the intersection of entertainment, culture, technology and digital media. Founded and led by Giovanni Saint Pierre.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
@@ -180,6 +180,22 @@
     color: var(--color-foreground);
   }
   .brand-mark img { height: 48px; width: auto; display: block; }
+  .brand-wordmark { display: flex; flex-direction: column; line-height: 1.2; }
+  .brand-name {
+    font-family: var(--font-display);
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+  }
+  .brand-tagline {
+    font-family: var(--font-body);
+    font-size: 0.66rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--color-muted-foreground);
+  }
+  @media (max-width: 520px) { .brand-tagline { display: none; } }
   nav.primary-nav { display: flex; align-items: center; gap: 28px; }
   nav.primary-nav a {
     font-size: 0.92rem;
@@ -240,14 +256,15 @@
   }
   .hero .eyebrow { text-align: center; }
   .hero h1 {
-    font-size: clamp(2.2rem, 5vw, 3.6rem);
-    max-width: 900px;
+    font-size: clamp(2.6rem, 6vw, 4.6rem);
+    max-width: 980px;
+    letter-spacing: -0.01em;
     margin: 0 auto 0.5em;
   }
   .hero .lede {
-    max-width: 620px;
+    max-width: 680px;
     margin: 0 auto 2em;
-    font-size: 1.1rem;
+    font-size: 1.15rem;
     color: var(--color-muted-foreground);
   }
   .hero-ctas { display: flex; gap: 16px; justify-content: center; flex-wrap: wrap; margin-bottom: 1.5em; }
@@ -316,14 +333,80 @@
   }
   .card h3 { font-size: 1.25rem; }
 
-  /* Services */
-  .service-card {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-top: 3px solid var(--color-accent);
-    padding: 36px 32px;
+  .selective-note {
+    max-width: 640px;
+    margin: 48px auto 0;
+    padding-top: 32px;
+    border-top: 1px solid var(--color-border);
+    text-align: center;
   }
-  .service-card h3 { font-size: 1.35rem; margin-bottom: 0.6em; }
+  .selective-note .eyebrow { text-align: center; }
+
+  /* Why GSP */
+  .why-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 36px 48px;
+  }
+  @media (max-width: 700px) { .why-grid { grid-template-columns: 1fr; } }
+  .why-item h3 {
+    font-size: 1.05rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    margin-bottom: 0.5em;
+  }
+
+  /* Mandates */
+  .mandate-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--color-border);
+    border: 1px solid var(--color-border);
+  }
+  @media (max-width: 860px) { .mandate-grid { grid-template-columns: repeat(2, 1fr); } }
+  @media (max-width: 560px) { .mandate-grid { grid-template-columns: 1fr; } }
+  .mandate-item {
+    background: var(--color-surface);
+    padding: 40px 32px;
+  }
+  .mandate-item .mandate-index {
+    font-family: var(--font-display);
+    font-size: 0.95rem;
+    color: var(--color-accent);
+    display: block;
+    margin-bottom: 0.8em;
+  }
+  .mandate-item h3 {
+    font-family: var(--font-body);
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    text-transform: uppercase;
+    margin-bottom: 0.6em;
+  }
+
+  /* Point of view */
+  .pov-topics {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 32px;
+    margin-top: 48px;
+    padding-top: 40px;
+    border-top: 1px solid #3A342D;
+  }
+  @media (max-width: 860px) { .pov-topics { grid-template-columns: 1fr; } }
+  .pov-topic h3 {
+    font-size: 1.05rem;
+    font-family: var(--font-body);
+    font-weight: 700;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+    color: var(--color-band-foreground);
+    margin-bottom: 0.5em;
+  }
 
   /* Process */
   .process-grid {
@@ -358,9 +441,6 @@
   }
   .case-card .case-kicker { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--color-accent-dark); font-weight: 600; margin-bottom: 0.6em; }
   .case-card h3 { font-size: 1.15rem; margin-bottom: 0.4em; }
-  .case-metrics { list-style: none; padding: 0; margin: 1em 0 0; border-top: 1px solid var(--color-border); padding-top: 1em; }
-  .case-metrics li { font-size: 0.92rem; margin-bottom: 0.5em; padding-left: 20px; position: relative; }
-  .case-metrics li::before { content: "\2192"; position: absolute; left: 0; color: var(--color-accent); }
   .client-roster {
     text-align: center;
     margin-top: 48px;
@@ -512,16 +592,21 @@
   <div class="nav-row">
     <a class="brand-mark" href="#top" aria-label="GSP Ventures home">
       <img src="assets/gsp-logo-black.svg" alt="GSP Ventures" width="48" height="48">
+      <span class="brand-wordmark">
+        <span class="brand-name">GSP Ventures</span>
+        <span class="brand-tagline">Strategic Advisory &amp; Brand Partnerships</span>
+      </span>
     </a>
     <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="primaryNav" aria-label="Toggle navigation menu">
       <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
     </button>
     <nav class="primary-nav" id="primaryNav" aria-label="Primary">
       <a href="#about">About</a>
-      <a href="#services">Services</a>
-      <a href="#case-studies">Case Studies</a>
+      <a href="#mandates">Mandates</a>
+      <a href="#selected-work">Selected Work</a>
+      <a href="#perspective">Perspective</a>
       <a href="#contact">Contact</a>
-      <a href="#contact" class="btn btn-primary" style="margin-left:8px;">Book a Strategy Call</a>
+      <a href="#contact" class="btn btn-primary" style="margin-left:8px;">Request an Introduction</a>
     </nav>
   </div>
 </header>
@@ -530,12 +615,12 @@
 
   <section class="hero" id="top">
     <div class="container">
-      <span class="eyebrow">Hollywood-level social media, without the chaos.</span>
-      <h1>Elite Social Media Consulting for Hollywood&rsquo;s Most Visible Brands.</h1>
-      <p class="lede">GSP Ventures architects social strategies for A-list talent and the brands that work with them&mdash;turning attention into measurable revenue, not just likes.</p>
+      <span class="eyebrow">Strategic Advisory &amp; Brand Partnerships</span>
+      <h1>Experience That Moves Culture. Strategy That Moves Business.</h1>
+      <p class="lede">GSP Ventures is a strategic advisory and brand partnerships consultancy working at the intersection of entertainment, culture, technology and digital media. Founded and led by Giovanni Saint Pierre, a veteran strategist with decades of experience working alongside high-profile talent, brands and entrepreneurs, GSP Ventures transforms cultural relevance into strategic partnerships, audience growth and measurable commercial opportunity.</p>
       <div class="hero-ctas">
-        <a class="btn btn-primary" href="#contact">Book a Strategy Call</a>
-        <a class="btn btn-outline" href="#case-studies">View Case Studies</a>
+        <a class="btn btn-primary" href="#contact">Request an Introduction</a>
+        <a class="btn btn-outline" href="#selected-work">View Selected Work</a>
       </div>
       <p class="hero-note">By-referral relationships only. Introductory calls available for studios, agencies, and brand CMOs.</p>
     </div>
@@ -547,23 +632,23 @@
       <div class="stats-grid">
         <div class="stat">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="8" r="6"/><path d="M8 14l-2 7 6-3 6 3-2-7"/></svg>
-          <span class="stat-number">30+</span>
-          <span class="stat-label">Years of Industry Experience</span>
-        </div>
-        <div class="stat">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
-          <span class="stat-number">160B+</span>
-          <span class="stat-label">Views Generated</span>
+          <span class="stat-number">20+ Years</span>
+          <span class="stat-label">Entertainment &amp; Brand Strategy</span>
         </div>
         <div class="stat">
           <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v12M15.5 9.5a3.5 3 0 0 0-3.5-1.5c-2 0-3.5 1-3.5 2.5S10 12.5 12 13s3.5 1 3.5 2.5-1.5 2.5-3.5 2.5a3.5 3 0 0 1-3.5-1.5"/></svg>
           <span class="stat-number">$48M+</span>
-          <span class="stat-label">Brand Deals Influenced</span>
+          <span class="stat-label">Brand Partnerships</span>
         </div>
         <div class="stat">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12 2l2.4 6.5L21 9l-5 4.5L17.5 21 12 17l-5.5 4L8 13.5 3 9l6.6-.5z"/></svg>
-          <span class="stat-number">20+ Years</span>
-          <span class="stat-label">Building Brands &amp; Talent</span>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg>
+          <span class="stat-number">160B+</span>
+          <span class="stat-label">Digital Views &amp; Impressions</span>
+        </div>
+        <div class="stat">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M3 12h18M12 3c2.5 2.5 4 6 4 9s-1.5 6.5-4 9c-2.5-2.5-4-6-4-9s1.5-6.5 4-9z"/></svg>
+          <span class="stat-number">Global</span>
+          <span class="stat-label">Talent &middot; Brands &middot; Technology &middot; Culture</span>
         </div>
       </div>
       <p class="stats-note">Trusted by leading studios, streaming platforms, luxury houses, and recording artists.</p>
@@ -574,11 +659,11 @@
     <div class="container split">
       <div>
         <img class="portrait" src="assets/gio-portrait.jpg" alt="Giovanni Saint Pierre, Founder &amp; President of GSP Ventures" width="152" height="152">
-        <span class="eyebrow">A Strategy Partner for the Hyper-Visible</span>
+        <span class="eyebrow">Founder &amp; Strategic Advisor</span>
         <h2>Giovanni Saint Pierre</h2>
-        <p class="role-title">Global Brand Partnerships &amp; Strategic Digital Strategy Executive</p>
+        <p class="role-title">Founder &amp; Strategic Advisor, GSP Ventures</p>
         <hr class="rule">
-        <p>Giovanni Saint Pierre is a globally recognized brand partnerships and strategic digital executive with decades of experience operating at the intersection of entertainment, celebrity, technology, luxury, and the creator economy. As Founder &amp; President of GSP Ventures, he advises high-profile personalities, global brands, technology companies, and emerging market leaders on how to transform influence, cultural relevance, digital audiences, and strategic relationships into measurable commercial value.</p>
+        <p>Giovanni Saint Pierre is a veteran entertainment, digital strategy and brand partnerships executive whose career spans more than two decades at the intersection of celebrity, culture, media and commerce. As Founder of GSP Ventures, he advises high-profile personalities, global brands, technology companies, and emerging market leaders on how to transform influence, cultural relevance, digital audiences, and strategic relationships into measurable commercial value.</p>
         <p>He is a trusted strategic partner to high-profile entertainment talent and creators&mdash;including <strong>Paula Abdul</strong>, <strong>Jake Paul</strong>, and <strong>Tony Hawk</strong>&mdash;and co-founder of Rise9.</p>
         <a class="btn btn-outline" href="#contact">Schedule a confidential intro</a>
       </div>
@@ -597,11 +682,39 @@
     </div>
   </section>
 
-  <section class="band-dark" aria-labelledby="perspective-heading">
+  <section style="background:var(--color-surface); border-top:1px solid var(--color-border); border-bottom:1px solid var(--color-border);">
+    <div class="container">
+      <div class="section-head">
+        <span class="eyebrow">Why GSP</span>
+        <h2>What separates an advisor from an agency.</h2>
+      </div>
+      <div class="why-grid">
+        <div class="why-item">
+          <h3>Multi-Decades of Market Experience</h3>
+          <p class="muted">Not theory. Experience developed across entertainment, publicity, talent, digital media and brand partnerships.</p>
+        </div>
+        <div class="why-item">
+          <h3>Relationship-Driven</h3>
+          <p class="muted">A network developed through decades inside entertainment, celebrity, luxury and business.</p>
+        </div>
+        <div class="why-item">
+          <h3>Commercial First</h3>
+          <p class="muted">Every strategy ultimately connects to visibility, influence, partnerships, revenue or enterprise value.</p>
+        </div>
+        <div class="why-item">
+          <h3>Cross-Industry Perspective</h3>
+          <p class="muted">Entertainment, technology, luxury, creators and digital media, viewed as one connected system.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="band-dark" id="perspective" aria-labelledby="perspective-heading">
     <div class="container">
       <div class="section-head" style="max-width:760px;">
-        <span class="eyebrow">Philosophy</span>
+        <span class="eyebrow">The Next Era of Influence</span>
         <h2 id="perspective-heading">The GSP Ventures Perspective</h2>
+        <p class="muted">The creator economy is moving beyond impressions. The next generation of brand value will be built around proprietary audiences, cultural authority, strategic partnerships and measurable commerce &mdash; GSP Ventures helps brands and talent navigate that transition.</p>
         <p class="muted">GSP Ventures operates at the level where strategy meets access, influence meets commerce, and attention meets ROI.</p>
         <p class="muted">Giovanni&rsquo;s value isn&rsquo;t simply in creating visibility&mdash;it&rsquo;s in understanding why an audience responds, how attention compounds, where distribution can be expanded, which partnerships create leverage, and how digital influence ultimately translates into enterprise value.</p>
         <p class="muted">In an environment where technology, AI, creators, entertainment, and consumer behavior are converging at unprecedented speed, Giovanni brings the perspective of an executive who has spent decades understanding the industry&rsquo;s evolution&mdash;and the foresight to see where it&rsquo;s going next.</p>
@@ -609,6 +722,20 @@
       <blockquote class="perspective-statement">
         Exceptional visibility is valuable. Strategic visibility that produces measurable business results is exponentially more valuable.
       </blockquote>
+      <div class="pov-topics">
+        <div class="pov-topic">
+          <h3>The Creator Economy</h3>
+          <p class="muted">Moving beyond impressions toward proprietary audiences and durable commercial value.</p>
+        </div>
+        <div class="pov-topic">
+          <h3>The Future of Brand Partnerships</h3>
+          <p class="muted">Where cultural authority and strategic alignment are replacing one-off sponsorships.</p>
+        </div>
+        <div class="pov-topic">
+          <h3>AI &times; Entertainment &times; Culture</h3>
+          <p class="muted">How intelligent systems are reshaping distribution, discovery and the value of attention.</p>
+        </div>
+      </div>
     </div>
   </section>
 
@@ -629,50 +756,53 @@
         </div>
         <div class="card">
           <h3>Teams</h3>
-          <p class="muted">Managers, agents, publicists, and CMOs who want one partner orchestrating the entire social and content layer.</p>
+          <p class="muted">Managers, agents, publicists, and CMOs who want one partner orchestrating the entire strategic and commercial layer.</p>
         </div>
       </div>
-      <p class="muted" style="text-align:center; margin-top:32px;">How we engage: discreet retainers, campaign-based scopes, and select equity-based partnerships for long-term franchises.</p>
+      <div class="selective-note">
+        <span class="eyebrow">Selective Engagement</span>
+        <p class="muted">GSP Ventures works with a limited number of brands, founders, executives and high-profile personalities where strategic counsel, relationship development and commercial opportunity can create disproportionate value.</p>
+      </div>
     </div>
   </section>
 
-  <section id="services">
+  <section id="mandates">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">Services</span>
-        <h2>End-to-end social architecture for talent and brands.</h2>
-        <p class="muted">Each engagement is customized, but most fall into one of three pillars.</p>
+        <span class="eyebrow">Strategic Mandates</span>
+        <h2>The business is organized around outcomes, not a menu.</h2>
+        <p class="muted">Each engagement is customized, but most fall into one of six mandates.</p>
       </div>
-      <div class="cols-3">
-        <div class="service-card">
-          <h3>Celebrity Social Strategy</h3>
-          <p class="muted">We audit, re-position, and rebuild your presence across all major platforms with a singular lens: what does this do for your career, earnings, and reputation?</p>
-          <ul class="bullet-list">
-            <li>Narrative &amp; persona mapping</li>
-            <li>Platform &amp; content lane strategy</li>
-            <li>Cadence, formats, and guardrails</li>
-            <li>Team workflows &amp; approvals</li>
-          </ul>
+      <div class="mandate-grid">
+        <div class="mandate-item">
+          <span class="mandate-index">01</span>
+          <h3>Brand &amp; Talent Strategy</h3>
+          <p class="muted">Narrative, positioning, and long-term strategy for individuals and franchises with real cultural weight.</p>
         </div>
-        <div class="service-card">
-          <h3>Flagship Launches &amp; Big Moments</h3>
-          <p class="muted">Movie premieres, series drops, albums, tours, brand collabs, fragrances&mdash;we architect the social layer around your next big moment.</p>
-          <ul class="bullet-list">
-            <li>Concept &amp; content calendar for the full cycle</li>
-            <li>Platform-specific creative direction &amp; templates</li>
-            <li>Talent, brand, and platform co-ordination</li>
-            <li>Live moments, press, and UGC amplification</li>
-          </ul>
+        <div class="mandate-item">
+          <span class="mandate-index">02</span>
+          <h3>Global Brand Partnerships</h3>
+          <p class="muted">Architecting partnerships between talent and brands that hold up commercially and creatively.</p>
         </div>
-        <div class="service-card">
-          <h3>Brand Partnerships &amp; CMO Advisory</h3>
-          <p class="muted">For studios, brands, and agencies partnering with talent, we design social campaigns that feel authentic to the celebrity while hitting brand KPIs.</p>
-          <ul class="bullet-list">
-            <li>Talent fit and concept development</li>
-            <li>Cross-channel campaign frameworks</li>
-            <li>Measurement plans and reporting</li>
-            <li>Long-term franchise &amp; IP roadmapping</li>
-          </ul>
+        <div class="mandate-item">
+          <span class="mandate-index">03</span>
+          <h3>Digital &amp; Creator Strategy</h3>
+          <p class="muted">Audience development and platform strategy built for compounding reach, not one-off spikes.</p>
+        </div>
+        <div class="mandate-item">
+          <span class="mandate-index">04</span>
+          <h3>Entertainment &amp; Cultural Advisory</h3>
+          <p class="muted">Counsel on where culture is moving and how a brand or talent property should move with it.</p>
+        </div>
+        <div class="mandate-item">
+          <span class="mandate-index">05</span>
+          <h3>Revenue &amp; Monetization Strategy</h3>
+          <p class="muted">Turning attention and access into structured, measurable commercial opportunity.</p>
+        </div>
+        <div class="mandate-item">
+          <span class="mandate-index">06</span>
+          <h3>Market Entry &amp; Growth</h3>
+          <p class="muted">Positioning and go-to-market counsel for brands and technology companies entering culture-driven markets.</p>
         </div>
       </div>
     </div>
@@ -706,43 +836,28 @@
     </div>
   </section>
 
-  <section id="case-studies">
+  <section id="selected-work">
     <div class="container">
       <div class="section-head">
-        <span class="eyebrow">Case Studies</span>
-        <h2>From vanity metrics to career-defining moments.</h2>
-        <p class="muted">Individual campaign details stay confidential per client agreements, so outcomes below are shared without names attached.</p>
+        <span class="eyebrow">Selected Experience</span>
+        <h2>A deal book, not a highlight reel.</h2>
+        <p class="muted">A sample of the relationships behind the numbers above.</p>
       </div>
       <div class="case-grid">
         <article class="case-card">
-          <span class="case-kicker">Streaming Series Lead</span>
-          <h3>A cohesive narrative ahead of a flagship launch</h3>
-          <p class="muted">Re-positioned a rising actor's social presence ahead of a flagship streaming launch, shifting their feeds from random posts to a cohesive narrative around character, craft, and community.</p>
-          <ul class="case-metrics">
-            <li>312% engagement lift over 90 days</li>
-            <li>2.1x increase in story completion rate</li>
-            <li>Multiple top-tier press mentions referencing social</li>
-          </ul>
+          <span class="case-kicker">Paula Abdul</span>
+          <h3>Digital Transformation &middot; Brand Partnerships &middot; Audience Growth</h3>
+          <p class="muted">Strategic social and commercial initiatives contributed to significant audience growth and multi-million-dollar brand partnership opportunities across entertainment, fashion and lifestyle.</p>
         </article>
         <article class="case-card">
-          <span class="case-kicker">Global Luxury House</span>
-          <h3>A talent-led capsule that sold out in 36 hours</h3>
-          <p class="muted">Partnered with a luxury brand and a globally recognized musician to architect the social rollout for a limited release line.</p>
-          <ul class="case-metrics">
-            <li>Sold-out drop within 36 hours</li>
-            <li>4.3x uplift in brand's TikTok engagement</li>
-            <li>Talent &amp; brand retained for multi-year partnership</li>
-          </ul>
+          <span class="case-kicker">Jake Paul &amp; Team 10</span>
+          <h3>Creator Partnerships &middot; Sponsorship Strategy &middot; Commercial Activation</h3>
+          <p class="muted">Advised on creator partnership structure and sponsorship strategy during a period of rapid audience growth, translating attention into durable commercial activation.</p>
         </article>
         <article class="case-card">
-          <span class="case-kicker">Franchise Reboot</span>
-          <h3>From declining fandom to a record-breaking season</h3>
-          <p class="muted">For a long-running franchise with aging audiences, re-imagined the social strategy around new talent and fan-driven storylines.</p>
-          <ul class="case-metrics">
-            <li>7x increase in social video watch time</li>
-            <li>Record-high engagement for the franchise</li>
-            <li>Organic campaign picked up by major entertainment press</li>
-          </ul>
+          <span class="case-kicker">Tony Hawk</span>
+          <h3>Brand Strategy &middot; Digital Partnerships</h3>
+          <p class="muted">Guided brand strategy and digital partnership development, connecting decades of cultural authority to new-generation audiences and platforms.</p>
         </article>
       </div>
       <p class="client-roster">Client and partnership history includes Jake Paul, Paula Abdul, Collins Key, Alessandra Ambrosio, Hype House LA, Team 10, Lucy Liu, Madonna, Britney Spears, WPLL (Women&rsquo;s Professional Lacrosse League), Christina Aguilera, Gloria Gaynor, Clubhouse BH, BigFootBae, and others.</p>
@@ -904,7 +1019,7 @@
       </div>
     </div>
     <div class="footer-bottom">
-      <p style="margin:0;">GSP Ventures &mdash; Hollywood celebrity social media consulting for talent, brands, and the teams who support them.</p>
+      <p style="margin:0;">GSP Ventures &mdash; a strategic advisory and brand partnerships consultancy at the intersection of entertainment, culture, technology and commerce.</p>
       <p style="margin:0;">&copy; 2026 GSP Ventures. All rights reserved.</p>
     </div>
   </div>
